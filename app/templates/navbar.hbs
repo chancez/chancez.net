@@ -1,5 +1,10 @@
-<ul class="nav">
-{{#each item in controllers.navbar}}
-    {{view view.MenuItemView itemBinding="item"}}
-{{/each}}
-</ul>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        {{#linkTo index.home class="brand"}}AppHome{{/linkTo}}
+        <ul class="nav">
+            {{#each item in controller}}
+                {{ view view.MenuItemView itemBinding="item" }}
+            {{/each}}
+        </ul>
+    </div>
+</div>

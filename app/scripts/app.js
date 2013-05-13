@@ -21,11 +21,14 @@
     });
   });
 
-  // App.PostsRoute = Ember.Route.extend({
+  App.PostsRoute = Ember.Route.extend({
+    enter: function() {
+      $(document).attr("title", "Blog");
+    }
   //   model: function() {
   //     return App.Post.all();
   //   }
-  // });
+  });
 
   // App.PostRoute = Ember.Route.extend({
   //   model: function(params) {
@@ -41,7 +44,6 @@
 
   App.IndexHomeRoute = Ember.Route.extend({
     enter: function() {
-      console.log('home route');
       $(document).attr("title", "Home");
     },
     renderTemplate: function() {
@@ -49,9 +51,9 @@
     }
   });
 
-  App.ApplicationController = Ember.Controller.extend({
-      needs: ['navbar'],
-  });
+  // App.ApplicationController = Ember.Controller.extend({
+  //     needs: ['navbar'],
+  // });
 
   App.NavbarController = Ember.ArrayController.extend({
     content: [],
@@ -74,31 +76,33 @@
 
   App.ApplicationView = Ember.View.extend({
     templateName: "application",
+  });
 
-    NavbarView: Ember.View.extend({
-      templateName: 'navbar',
-      selectedRouteName: 'home',
-      gotoRoute: function(e) {
-        this.set('selectedRouteName', e.routeName);
-        this.get('controller.target.router').transitionTo(e.routePath);
-      },
+  App.NavbarView = Ember.View.extend({
+    templateName: 'navbar',
+    selectedRouteName: 'home',
+    gotoRoute: function(e) {
+      this.set('selectedRouteName', e.routeName);
+      this.get('parentView.controller.target.router').transitionTo(e.routePath);
+    },
 
-      MenuItemView: Ember.View.extend({
-        templateName: 'menu-item',
-        tagName: 'li',
-        classNameBindings: ['IsActive:active'],
-        IsActive: function() {
-          return this.get('item.routeName') === this.get('parentView.selectedRouteName');
-        }.property('item', 'parentView.selectedRouteName')
-      })
-
+    MenuItemView: Ember.View.extend({
+      templateName: 'menu-item',
+      tagName: 'li',
+      classNameBindings: ['IsActive:active'],
+      IsActive: function() {
+        return this.get('item.routeName') === this.get('parentView.selectedRouteName');
+      }.property('item', 'parentView.selectedRouteName')
     })
+
   });
 
+  // App.HomeView = Ember.View.extend({
+  //   templateName: 'home',
+  // });
 
-  App.HomeView = Ember.View.extend({
-    templateName: 'home',
+  App.PostsView = Ember.View.extend({
+    templateName: 'posts',
   });
-
 
 })(this);
