@@ -7,7 +7,7 @@
   });
 
   App.Router.map(function () {
-    this.resource('index', { path: '/' }, function() {
+    this.resource('home', { path: '/' }, function() {
       this.route('home');
     });
     this.resource('posts', function() {
@@ -38,16 +38,22 @@
 
   App.IndexRoute = Ember.Route.extend({
     redirect: function() {
-      this.transitionTo('index.home');
+      this.transitionTo('home');
     }
   });
 
-  App.IndexHomeRoute = Ember.Route.extend({
+  App.HomeRoute = Ember.Route.extend({
     enter: function() {
       $(document).attr("title", "Home");
     },
     renderTemplate: function() {
       this.render('home');
+    }
+  });
+
+  App.HomeHomeRoute = Ember.Route.extend({
+    redirect: function() {
+      this.transitionTo('home');
     }
   });
 
@@ -60,7 +66,7 @@
     init: function() {
       var home = App.NavItem.create({
         text: "Home",
-        routePath: "index.home",
+        routePath: "home.index",
         routeName: "home"
       });
 
@@ -72,6 +78,10 @@
 
       this.set("content", [home, blog]);
     }
+  });
+
+  App.PostsController = Ember.ArrayController.extend({
+
   });
 
   App.ApplicationView = Ember.View.extend({
@@ -97,12 +107,17 @@
 
   });
 
-  // App.HomeView = Ember.View.extend({
-  //   templateName: 'home',
-  // });
+  App.HomeView = Ember.View.extend({
+    templateName: 'home',
+  });
 
   App.PostsView = Ember.View.extend({
     templateName: 'posts',
+  });
+
+  App.Store = DS.Store.extend({
+    revision: 12,
+    adapter: 'DS.fixtureAdapter'
   });
 
 })(this);
