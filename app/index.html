@@ -1,12 +1,22 @@
 <!doctype html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
         <title>Chance Zibolski</title>
 
         <!-- build:css styles/main.css -->
         <link rel="stylesheet" href="styles/normalize.css">
         <link rel="stylesheet" href="components/components-bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="components/components-bootstrap/css/bootstrap-responsive.css">
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+
         <link rel="stylesheet" href="styles/style.css">
         <!-- endbuild -->
 </head>
@@ -15,16 +25,17 @@
 
         <!-- build:js scripts/components.js -->
         <script src="components/jquery/jquery.js"></script>
+        <script src="components/components-bootstrap/js/bootstrap.min.js"></script>
         <script src="components/handlebars/handlebars.js"></script>
         <script src="components/ember/ember.js"></script>
         <script src="components/ember-data/ember-data-latest.js"></script>
         <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->
+        <script src="scripts/utils.js"></script>
         <script src="scripts/app.js"></script>
         <script src="scripts/models/navitem.js"></script>
         <script src="scripts/models/post.js"></script>
-        <script src="scripts/views/navbar.js"></script>
         <!-- endbuild -->
 
         <!-- build:js(.tmp) scripts/templates.js -->

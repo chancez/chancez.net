@@ -9,6 +9,7 @@
   App.Router.map(function () {
     this.resource('home', { path: '/' }, function() {
       this.route('home');
+      this.route('recentPosts', { path: '/recent'});
     });
     this.resource('posts', function() {
       this.route('new');
@@ -24,17 +25,17 @@
   App.PostsRoute = Ember.Route.extend({
     enter: function() {
       $(document).attr("title", "Blog");
+    },
+    model: function() {
+      return App.Post.find();
     }
-  //   model: function() {
-  //     return App.Post.all();
-  //   }
   });
 
-  // App.PostRoute = Ember.Route.extend({
-  //   model: function(params) {
-  //     return App.Post.find(params.post_id);
-  //   }
-  // });
+  App.PostRoute = Ember.Route.extend({
+    model: function(params) {
+      return App.Post.find(params.post_id);
+    }
+  });
 
   App.IndexRoute = Ember.Route.extend({
     redirect: function() {
@@ -57,10 +58,6 @@
     }
   });
 
-  // App.ApplicationController = Ember.Controller.extend({
-  //     needs: ['navbar'],
-  // });
-
   App.NavbarController = Ember.ArrayController.extend({
     content: [],
     init: function() {
@@ -78,10 +75,6 @@
 
       this.set("content", [home, blog]);
     }
-  });
-
-  App.PostsController = Ember.ArrayController.extend({
-
   });
 
   App.ApplicationView = Ember.View.extend({
@@ -113,11 +106,14 @@
 
   App.PostsView = Ember.View.extend({
     templateName: 'posts',
+    PostView: Ember.View.extend({
+      templateName: 'post'
+    })
   });
 
   App.Store = DS.Store.extend({
     revision: 12,
-    adapter: 'DS.fixtureAdapter'
+    adapter: 'DS.FixtureAdapter'
   });
 
 })(this);
