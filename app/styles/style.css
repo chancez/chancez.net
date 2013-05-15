@@ -17,6 +17,7 @@ img {
 .post-item {
     padding: 15px 0;
     border-bottom: 1px dotted #ccc;
+    text-align: justify;
 }
 
 .feat-img img {
@@ -40,4 +41,5 @@ img {
 
 .post .content {
     margin: 15px;
+    text-align: justify;
 }

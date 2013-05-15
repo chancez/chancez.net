@@ -4,5 +4,16 @@
     Welcome to my humble website.
   </p>
 
+</div>
 
+
+{{! TODO: Make into layout }}
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12">
+      {{#each post in controllers.posts.recent}}
+        {{render "postItem" post}}
+      {{/each}}
+    </div>
+  </div>
 </div>

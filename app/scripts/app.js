@@ -7,10 +7,7 @@
   });
 
   App.Router.map(function () {
-    this.resource('home', { path: '/' }, function() {
-      this.route('home');
-      this.route('recentPosts', { path: '/recent'});
-    });
+    this.resource('home', { path: '/' }, function() {});
     this.resource('posts', function() {
       this.route('new');
     });
@@ -49,12 +46,9 @@
     },
     renderTemplate: function() {
       this.render('home');
-    }
-  });
-
-  App.HomeHomeRoute = Ember.Route.extend({
-    redirect: function() {
-      this.transitionTo('home');
+    },
+    setupController: function(controller, model) {
+      this.controllerFor('posts').set('content', App.Post.find());
     }
   });
 
@@ -75,6 +69,18 @@
 
       this.set("content", [home, blog]);
     }
+  });
+
+  App.HomeController = Ember.ArrayController.extend({
+      needs: ['posts'],
+
+  });
+
+
+  App.PostsController = Ember.ArrayController.extend({
+    recent: function() {
+      return this.get('content').filterProperty('isNew', true);
+    }.property('content.@each.published')
   });
 
   App.ApplicationView = Ember.View.extend({

@@ -25,4 +25,11 @@ App.Post.FIXTURES = [
     author: 'Chance',
     published: new Date()
   },
+  {
+    id: 3,
+    title: 'New title',
+    body: 'Another cool body of text',
+    author: 'Chance',
+    published: new Date()
+  },
 ];
