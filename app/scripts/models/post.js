@@ -14,7 +14,7 @@ App.Post.FIXTURES = [
   {
     id: 1,
     title: 'Test Post 1',
-    body: 'blah blah blah',
+    body: 'blah blah blah blah blah blablah blah blah blah blah blablah blah blah blah blah blablah blah blah blah blah blablah blah blah blah blah blablah blah blah blah blah blablah blah blah blah blah blablah blah blah blah blah blablah blah blah blah blah blablah blah blah blah blah blablah blah blah blah blah blablah blah blah blah blah blablah blah blah blah blah blablah blah blah blah blah blablah blah blah blah blah blablah blah blah blah blah blablah blah blah blah blah blablah blah blah blah blah blablah blah blah blah blah blah ',
     author: 'Chance',
     published: new Date(2013, 4, 11)
   },
@@ -23,6 +23,6 @@ App.Post.FIXTURES = [
     title: 'Interesting blog post',
     body: 'Once upon a time..',
     author: 'Chance',
-    published: new Date
+    published: new Date()
   },
 ];

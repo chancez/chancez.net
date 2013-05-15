@@ -2,10 +2,12 @@
   <div class="row-fluid">
     <div class="span12">
       {{#each post in model}}
-        {{render "post" post}}
+        {{render "postItem" post}}
       {{/each}}
     </div>
   </div>
 </div>
+
+{{outlet}}
 
 

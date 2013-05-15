@@ -106,9 +106,14 @@
 
   App.PostsView = Ember.View.extend({
     templateName: 'posts',
-    PostView: Ember.View.extend({
-      templateName: 'post'
-    })
+  });
+
+  App.PostView = Ember.View.extend({
+    templateName: 'post',
+  });
+
+  App.PostItemView = Ember.View.extend({
+    templateName: 'post-item',
   });
 
   App.Store = DS.Store.extend({

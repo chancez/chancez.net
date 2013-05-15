@@ -14,7 +14,7 @@ img {
     box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
-.post {
+.post-item {
     padding: 15px 0;
     border-bottom: 1px dotted #ccc;
 }
@@ -26,4 +26,18 @@ img {
     border: 1px solid #ccc;
     position: relative;
     float: left;
+}
+
+.top_img img {
+    display: block;
+    margin: auto;
+    max-height: 250px;
+}
+
+.post {
+    margin-top: -25px;
+}
+
+.post .content {
+    margin: 15px;
 }
