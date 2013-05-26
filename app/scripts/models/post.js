@@ -5,7 +5,7 @@ App.Post = DS.Model.extend({
   published: DS.attr('date'),
   isNew: function() {
     var published = this.get('published');
-    var today = new Date;
+    var today = new Date();
     return days_between(published, today) < 1;
   }.property('published')
 });
